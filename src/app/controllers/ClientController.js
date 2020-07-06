@@ -26,13 +26,14 @@ class SessionController {
 
   async store(req, res) {
     const { email, name, cpf, phone } = req.body;
-
+    console.log(req.body)
     try {
       const client = await Client.create({ email, name, cpf, phone });
       return res.json(client);
     } catch (e) {
+      console.log(e)
       return res
-        .status(401)
+        .status(400)
         .json({ error: { message: 'Email já cadastrado' } });
     }
   }

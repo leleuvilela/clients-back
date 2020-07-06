@@ -1,9 +1,12 @@
+require('dotenv').config()
 const app = require('./app');
 const mongoose = require('mongoose');
 const mongoConfig = require('./config/database');
 
+const mongoUrl =  `mongodb://${mongoConfig.username}:${mongoConfig.password}@${mongoConfig.host}:${mongoConfig.port}/${mongoConfig.database}`;
+
 mongoose.connect(
-  `mongodb://${mongoConfig.username}:${mongoConfig.password}@${mongoConfig.host}:${mongoConfig.port}/${mongoConfig.database}`,
+  mongoUrl,
   {
     useNewUrlParser: true,
     useUnifiedTopology: false,

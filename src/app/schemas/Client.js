@@ -15,10 +15,10 @@ const ContactSchema = new Schema(
       type: String,
     },
     cpf: {
-      type: Number,
+      type: String,
     },
     phone: {
-      type: Number,
+      type: String,
     },
   },
   {
